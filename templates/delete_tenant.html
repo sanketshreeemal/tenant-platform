@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Tenant</title>
+</head>
+<body>
+    <h1>Delete Tenant</h1>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        <label for="unit">Enter Unit Number to Delete Tenant:</label>
+        <input type="text" id="unit" name="unit" required>
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

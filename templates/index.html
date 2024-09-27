@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Tenant Management System</h1>
+    <p><a href="{{ url_for('view_tenants') }}">View Tenants</a></p>
+    <p><a href="{{ url_for('add_tenant') }}">Add a New Tenant</a></p>
+    <p><a href="{{ url_for('delete_tenant') }}">Delete a Tenant</a></p>
+    <p><a href="{{ url_for('view_landlords') }}">View Landlords</a></p>
+    <p><a href="{{ url_for('add_landlord') }}">Add a New Landlord</a></p>
+</body>
+</html>

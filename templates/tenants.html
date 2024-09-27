@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenants</title>
+</head>
+<body>
+    <h1>Tenant List</h1>
+    <a href="{{ url_for('add_tenant') }}">Add a New Tenant</a>
+    <a href="{{ url_for('delete_tenant') }}">Delete a Tenant</a>
+    <a href="{{ url_for('view_landlords') }}">View Landlords</a>
+
+    <!-- Display a message for expiring tenants -->
+    {% if expiring_tenants %}
+        <h2>Upcoming Lease Expirations</h2>
+        <ul>
+        {% for tenant, days_left in expiring_tenants %}
+            <li>Lease for Unit {{ tenant.unit }} is expiring in {{ days_left }} days!</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Unit</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Lease Start</th>
+                <th>Lease End</th>
+                <th>Rent</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tenant in tenants %}
+            <tr>
+                <td>{{ tenant.id }}</td>
+                <td>{{ tenant.unit }}</td>
+                <td>{{ tenant.name }}</td>
+                <td>{{ tenant.email }}</td>
+                <td>{{ tenant.lease_start }}</td>
+                <td>{{ tenant.lease_end }}</td>
+                <td>{{ tenant.rent }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
